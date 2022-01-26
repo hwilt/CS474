@@ -19,8 +19,8 @@ def main():
     # get audio from the microphone                                                                       
     listener = sr.Recognizer()                                                                                   
     with sr.Microphone() as source:
-        listener.adjust_for_ambient_noise(source) # used to detect silence to stop listening after a phrase is spoken
         while True:
+            listener.adjust_for_ambient_noise(source) # used to detect silence to stop listening after a phrase is spoken
             print("Listening.")
             speak(tts, "listening") # how do we prevent this from being spoken every time an exception is thrown?
             time.sleep(1) # used to prevent hearing any spoken text; what else could we do?
