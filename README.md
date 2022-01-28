@@ -1,2 +1,2 @@
 # CS474
- Human Computer Artchitecture 
+Human Computer Artchitecture

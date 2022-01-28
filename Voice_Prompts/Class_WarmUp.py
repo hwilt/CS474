@@ -2,6 +2,7 @@
 # https://github.com/acgrissom/courses/blob/master/2020-hci/code/recognize_speech.py
 # sudo apt install portaudio19-dev libespeak-dev
 # pip3 install pyaudio pyttsx3 speechrecognition
+# alternatively: pip3 install pipwin && pipwin install pyaudio
  
 import speech_recognition as sr
 import pyttsx3
@@ -32,7 +33,7 @@ def main():
             try:
                 #convert audio to text
                 #user_input = listener.recognize_sphinx(audio) #requires PocketSphinx installation
-                user_input = listener.recognize_google(audio, show_all = False) # set show_all to True to get a dictionary of all possible translations
+                user_input = listener.recognize_google(audio, show_all = True) # set show_all to True to get a dictionary of all possible translations
  
                 print(user_input)
                 speak(tts, user_input)
