@@ -8,7 +8,7 @@ import speech_recognition as sr
 import pyttsx3
 import sys
 import time
- 
+
 tts = pyttsx3.init()
  
  
