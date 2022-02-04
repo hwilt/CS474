@@ -27,9 +27,7 @@ class Voice():
             listener.pause_threshold = 0.5
             audio = listener.listen(source, timeout=10)
             try:
-                user_input = listener.recognize_google(audio, show_all = True)
-                alternatives = inputs.get('alternative')[0]
-                print(alternatives)
+                user_input = listener.recognize_google(audio, show_all = False)
                 res.append(alternatives)
                 #self.speak(self.tts, user_input)
             except sr.UnknownValueError:
