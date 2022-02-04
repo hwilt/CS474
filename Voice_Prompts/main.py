@@ -27,8 +27,15 @@ class Voice():
             listener.pause_threshold = 0.5
             audio = listener.listen(source, timeout=10)
             try:
-                user_input = listener.recognize_google(audio, show_all = False)
-                res.append(alternatives)
+                user_input = listener.recognize_google(audio, show_all = True)
+                try:
+                    i = 0
+                    while i < len(user_input['alternative']):
+                        res.append(str(user_input['alternative'][i]['transcript']))
+                        i += 1
+                except:
+                    res.append(user_input)
+                #res.append(user_input)
                 #self.speak(self.tts, user_input)
             except sr.UnknownValueError:
                 print("Could not understand audio")
@@ -48,7 +55,8 @@ def character_create(tts, voice):
     res = None
     voice.speak(tts, "What is your name?")
     name = voice.get_user_input()
-    voice.speak(tts, "Hello, " + name[0] + ".")
+    name = name[0]
+    voice.speak(tts, "Hello, " + name + ".")
     res = Player()
     res.set_name(name[0])
     return res
@@ -58,8 +66,8 @@ def character_create(tts, voice):
 def gameloop():
     tts = pyttsx3.init()
     voice = Voice(tts)
-    print(voice.get_user_input())
-    character_create(tts, voice)
+    #print(voice.get_user_input())
+    player = character_create(tts, voice)
 
     
     
