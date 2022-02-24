@@ -72,8 +72,8 @@ def nothing(x):
 
 def main():
     cap = cv2.VideoCapture(0)
-    cv2.namedWindow('image')
-    cv2.createTrackbar('threshold', 'image', 0, 255, nothing)
+    cv2.namedWindow('Guessing Game')
+    cv2.createTrackbar('threshold', 'Guessing Game', 0, 255, nothing)
     while True:
         _, frame = cap.read()
         face_frame = detect_faces(frame, face_cascade)
@@ -81,11 +81,11 @@ def main():
             eyes = detect_eyes(face_frame, eye_cascade)
             for eye in eyes:
                 if eye is not None:
-                    threshold = r = cv2.getTrackbarPos('threshold', 'image')
+                    threshold = r = cv2.getTrackbarPos('threshold', 'Guessing Game')
                     eye = cut_eyebrows(eye)
                     keypoints = blob_process(eye, threshold, detector)
                     eye = cv2.drawKeypoints(eye, keypoints, eye, (0, 0, 255), cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
-        cv2.imshow('image', frame)
+        cv2.imshow('Guessing Game', frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     cap.release()
