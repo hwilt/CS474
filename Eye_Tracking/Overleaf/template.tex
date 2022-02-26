@@ -1,0 +1,127 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% LaTeX Template
+% Version 1.4 (15/5/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com) with extensive modifications by
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[twoside,twocolumn]{article}
+
+\usepackage{blindtext} % Package to generate dummy text throughout this template 
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[english]{babel} % Language hyphenation and typographical rules
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+
+\usepackage{enumitem} % Customized lists
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{OpenCV Eye Tracking $\bullet$ February 2022} % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+\usepackage{titling} % Customizing the title section
+
+\usepackage{hyperref} % For hyperlinks in the PDF
+
+\usepackage{biblatex} %Imports biblatex package
+\usepackage{csquotes}
+\addbibresource{wilt.bib} %Import the bibliography file
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+%\pretitle{\begin{center}\Huge\bfseries} % Article title formatting
+%\posttitle{\end{center}} % Article title closing formatting
+\title{Using OpenCV Eye Tracking to Make a Color Guessing Game} % Article title
+\author{%
+\textsc{Henry Wilt} \\[1ex]%\thanks{A thank you or further information}  % Your name
+\normalsize Ursinus College \\ % Your institution
+\normalsize \href{mailto:hewilt@ursinus.edu}{hewilt@ursinus.edu} % Your email address
+%\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
+%\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
+%\normalsize University of Utah \\ % Second author's institution
+%\normalsize \href{mailto:jane@smith.com}{jane@smith.com} % Second author's email address
+}
+\date{\today} % Leave empty to omit a date
+\renewcommand{\maketitlehookd}{%
+\begin{abstract}
+\noindent The goal for this assignment was to use open-cv, a python library that allows you to track your eyes, for a project in color guessing based on the text that was shown to the screen \cite{wmonganweb}. This was shown through a window that captures the live feed of the camera that then is processed with open-cv and then the user moves their eyes over the correct box with the color that was used in the text that was shown. 
+\end{abstract}
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+% Print the title
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\section{About the Code}
+
+\lettrine[nindent=0em,lines=2]{I} t is a pretty simple example game of guessing \cite{assignmentgithub}. There is not that much work that is used since most of the processing is handled by open-cv and their code library. When you run the program, a window pops up with your camera and a threshold bar. Once the program detects the user's eyes, it will start the guessing game by choosing a random color from the dictionary and put it on the screen then the user will have to move their eye to the correct box with the color that the word says instead of the color that the word is shown in. When the user guesses correctly the window will close and in the terminal it will print out the you have won and the name of the color that was correct. 
+
+%------------------------------------------------
+
+\section{Considerations}
+I had to consider how the user would interact with the program. If the user could not use the keyboard or if the user was deaf. In the program, there is no need for sound as you are only using your eyes to navigate through the options in the game. The keyboard is neither used in the program so that does not affect it either. The user only needs the use of their head/eyes to use the program. It will pick up on the user's movements which will convert it into action on the screen which allows the program to function.
+
+%------------------------------------------------
+
+\section{Conclusions}
+In conclusion, the program uses the python library of open-cv to allow the user's eye movement to play a color guessing game. This was an interesting project to work on because I've never used eye tracking software before and never knew how simple it actually was. I learned a lot about how the open-cv project is used in real technologies like, swapping faces or using augmented reality to paint. In the end, it was a great project to work on and I had fun doing it.
+
+
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+
+\printbibliography %Prints bibliography
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
