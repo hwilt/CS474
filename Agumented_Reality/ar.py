@@ -111,8 +111,8 @@ while True:
     #cv2.imshow("Source", source)
     cv2.imshow("OpenCV AR Output", output)
     print("press any key to continue or q to quit")
-    key = cv2.waitKey(0) & 0xFF
-    if key == ord('q'):
+    #key = cv2.waitKey(0) & 0xFF
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         sys.exit(0)
     else:
         continue
