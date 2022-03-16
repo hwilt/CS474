@@ -1,0 +1,126 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% LaTeX Template
+% Version 1.4 (15/5/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com) with extensive modifications by
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[twoside,twocolumn]{article}
+
+\usepackage{blindtext} % Package to generate dummy text throughout this template 
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[english]{babel} % Language hyphenation and typographical rules
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+
+\usepackage{enumitem} % Customized lists
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Open-CV Augmented Reality $\bullet$ February 2022} % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+\usepackage{titling} % Customizing the title section
+
+\usepackage{hyperref} % For hyperlinks in the PDF
+
+\usepackage{biblatex} %Imports biblatex package
+\usepackage{csquotes}
+\addbibresource{wilt.bib} %Import the bibliography file
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+%\pretitle{\begin{center}\Huge\bfseries} % Article title formatting
+%\posttitle{\end{center}} % Article title closing formatting
+\title{Using Open-CV and Arcu Markers for a Augmented Reality Scavenger Hunt} % Article title
+\author{%
+\textsc{Henry Wilt} \\[1ex]%\thanks{A thank you or further information}  % Your name
+\normalsize Ursinus College \\ % Your institution
+\normalsize \href{mailto:hewilt@ursinus.edu}{hewilt@ursinus.edu} % Your email address
+%\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
+%\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
+%\normalsize University of Utah \\ % Second author's institution
+%\normalsize \href{mailto:jane@smith.com}{jane@smith.com} % Second author's email address
+}
+\date{\today} % Leave empty to omit a date
+\renewcommand{\maketitlehookd}{%
+\begin{abstract}
+\noindent The goal for the assignment was to use Open-CV and an Arcu Marker card for a Augmented Reality Scavenger Hunt \cite{wmonganweb}. This is shown through the users webcam at the moment and the user holding up an Arcu Marker card. Then Open-CV will do the processing of putting an image on the card and showing facts about the current image being shown. 
+\end{abstract}
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+% Print the title
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\section{About the Assignment}
+
+\lettrine[nindent=0em,lines=2]{I} started off the assignment with looking at many tutorials for Open-CV and Arcu Markers\cite{assignmentgithub}. This lead me toward where you found your starter code and I mostly followed the tutorial to get all four corners and superimpose the image onto the Arcu Marker card. The next steps for me were finding photos of Ursinus to put onto the card and the name of the place. This was done pretty easily by putting all the locations of the photos in a dictionary. For the basic product, I just chose a random photo from the dictionary and put out to the screen with the name of the place. This was done as there is minimum valuable product ready and easy to change the code to add more the project at a later date.
+
+%------------------------------------------------
+
+\section{Future of Project}
+There is many ways the project can go in. Having different Acru Marker cards around campus that will pop up information about the location that the card is at. Having that be integrated into an app that the college uses for freshman to find their way around campus. This could have other implications like for tourists using the cards to find information about the city or a museum that are in. Finding things out that they would have never known about. 
+
+
+%------------------------------------------------
+
+\section{Conclusion}
+In conclusion, this project was fun to build and use. The options are endless for what to make with this idea. I think the most likely is to make an app for tourist to use when they are visiting other countries or cities so they learn a little about the culture that is there. 
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+
+\printbibliography %Prints bibliography
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
