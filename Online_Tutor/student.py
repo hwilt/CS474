@@ -7,17 +7,17 @@ class Student:
     def get_name(self):
         return self.name
 
-    def addCorrect():
+    def addCorrect(self):
         self.num_correct += 1
 
-    def addIncorrect():
+    def addIncorrect(self):
         self.num_incorrect += 1
 
-    def get_num_correct(self):
-        return self.num_correct
+    def reset_num_correct(self):
+        self.num_correct = 0
 
-    def get_num_incorrect(self):
-        return self.num_incorrect
+    def reset_num_incorrect(self):
+        self.num_incorrect = 0
 
     def get_score(self):
         return self.num_correct / (self.num_correct + self.num_incorrect)
