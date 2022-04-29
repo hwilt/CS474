@@ -6,6 +6,7 @@ from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.scrollview import ScrollView
 from kivy.lang.builder import Builder
 from kivy_garden.mapview import MapView, MapMarkerPopup
 from kivy.graphics import Rectangle, Color
@@ -19,14 +20,12 @@ from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 import cv2
 from kivy.graphics.texture import Texture
-import geocoder
 import os
-
-Window.size = 320, 600
 os.environ["OPENCV_VIDEOIO_MSMF_ENABLE_HW_TRANSFORMS"] = "0"
 
-screen_helper = """
+Window.size = 320, 600
 
+screen_helper = """
 ScreenManager:
     MapScreen:
     AchievementScreen:
@@ -42,9 +41,98 @@ ScreenManager:
             size: self.size
             pos: self.pos
 
-    MDLabel:
+    Label:
         text: 'Achievements'
-        halign: 'center'
+        pos_hint: {'x':0, 'y': 0.4}
+        font_size: 35
+        color: 0, 0, 0, 1
+        font_name: 'font/BebasNeue-Regular.ttf'
+    ScrollView:
+        size_hint_y: .73
+        pos_hint: {'x':0, 'y': .11}
+        do_scroll_x: False
+        do_scroll_y: True
+        GridLayout:
+            size_hint_x: None
+            size_hint_y: None
+            cols:3
+            size: root.width,root.height
+            Blank:
+                name:'1'
+                source:"Achievements/Bear Legend.png"
+                keep_ratio: True
+            Blank:
+                name:'2'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'3'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'4'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'5'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'6'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'7'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'8'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'9'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'10'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'11'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'12'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'13'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'11'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'12'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'13'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'11'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'12'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
+            Blank:
+                name:'13'
+                source:"Achievements/Locked.png"
+                keep_ratio: True
     RelativeLayout:
         size_hint_y: None
         height: dp(50)
@@ -54,27 +142,19 @@ ScreenManager:
             Rectangle:
                 size: self.size
         AwardButton:
-            source: 'arrow.png'
+            source: 'images/arrow.png'
             keep_ratio: False
             pos_hint: {'center_x': .5, 'center_y': .5}
             size_hint: None, None # if you are setting the size, the hint must be set to None
             size: 40, 40
             on_release: root.manager.current = 'map'
-    GridLayout:
-        cols:3
-        size: root.width,root.height
-        Label:
-            text:"image"
-        Label:
-            text:"image"
-        Label:
-            text:"image"
-        Label:
-            text:"image"
-        Label:
-            text:"image"
-
-        
+        AwardButton:
+            source: 'images/award.png'
+            keep_ratio: False
+            pos_hint: {'right': 1, 'center_y': .5}
+            size_hint: None, None # if you are setting the size, the hint must be set to None
+            size: 40, 40
+            on_press: app.callback()
 <HelpScreen>:
     name: 'help'
     canvas.before:
@@ -96,7 +176,7 @@ ScreenManager:
             Rectangle:
                 size: self.size
         AwardButton:
-            source: 'arrow.png'
+            source: 'images/arrow.png'
             keep_ratio: False
             pos_hint: {'center_x': .5, 'center_y': .5}
             size_hint: None, None # if you are setting the size, the hint must be set to None
@@ -112,7 +192,7 @@ ScreenManager:
         double_tap_zoom: True
         size: self.size
         MapMarkerPopup:
-            source: 'marker.png'
+            source: 'images/marker.png'
             
             size: 30, 30
             MDLabel:
@@ -120,7 +200,7 @@ ScreenManager:
                 text: "FLB"
         
         MapMarkerPopup:
-            source: 'marker.png'
+            source: 'images/marker.png'
             lat: 40.19442397231081
             lon: -75.45833125312626
             size: 30, 30
@@ -130,7 +210,7 @@ ScreenManager:
                 color: (0, 0, 0, 1)
 
         MapMarkerPopup:
-            source: 'marker.png'
+            source: 'images/marker.png'
             lat: 40.19305534071627
             lon: -75.45637860497125
             size: 30, 30
@@ -140,7 +220,7 @@ ScreenManager:
                 color: (0, 0, 0, 1)
 
         MapMarkerPopup:
-            source: 'marker.png'
+            source: 'images/marker.png'
             lat: 40.19206368018941
             lon: -75.45708134372097
             size: 30, 30
@@ -149,7 +229,7 @@ ScreenManager:
                 text: 'Bomberger Hall'
                 color: (0, 0, 0, 1)
         MapMarkerPopup:
-            source: 'marker.png'
+            source: 'images/marker.png'
             lat: 40.19245706791343
             lon: -75.45670047004295
             size: 30, 30
@@ -159,7 +239,7 @@ ScreenManager:
                 color: (0, 0, 0, 1)
 
         MapMarkerPopup:
-            source: 'marker.png'
+            source: 'images/marker.png'
             lat: 40.19464114783587
             lon: -75.45574560363646
             size: 30, 30
@@ -169,7 +249,7 @@ ScreenManager:
                 color: (0, 0, 0, 1)
 
         MapMarkerPopup:
-            source: 'marker.png'
+            source: 'images/marker.png'
             lat: 40.192473459026864
             lon: -75.4572851916091
             size: 30, 30
@@ -179,7 +259,7 @@ ScreenManager:
                 color: (0, 0, 0, 1)
 
         MapMarkerPopup:
-            source: 'marker.png'
+            source: 'images/marker.png'
             lat: 40.1911375708896
             lon: -75.45615866382441
             size: 30, 30
@@ -189,7 +269,7 @@ ScreenManager:
                 color: (0, 0, 0, 1)
 
         MapMarkerPopup:
-            source: 'marker.png'
+            source: 'images/marker.png'
             lat: 40.191985821902584
             lon: -75.45630886752811
             size: 30, 30
@@ -208,21 +288,21 @@ ScreenManager:
             Rectangle:
                 size: self.size
         AwardButton:
-            source: 'award.png'
+            source: 'images/award.png'
             keep_ratio: False
             pos_hint: {'right': 1, 'center_y': .5}
             size_hint: None, None # if you are setting the size, the hint must be set to None
             size: 40, 40
             on_release: root.manager.current = 'ach'
         AwardButton:
-            source: 'question.png'
+            source: 'images/question.png'
             keep_ratio: False
             pos_hint: {'left': 1, 'center_y': .5}
             size_hint: None, None # if you are setting the size, the hint must be set to None
             size: 40, 40
             on_release: root.manager.current = 'help'
         AwardButton:
-            source: 'camera.png'
+            source: 'images/camera.png'
             keep_ratio: False
             pos_hint: {'center_x': .5, 'center_y': .5}
             size_hint: None, None # if you are setting the size, the hint must be set to None
@@ -245,7 +325,7 @@ ScreenManager:
             Rectangle:
                 size: self.size
         AwardButton:
-            source: 'arrow.png'
+            source: 'images/arrow.png'
             keep_ratio: False
             pos_hint: {'center_x': .5, 'center_y': .5}
             size_hint: None, None # if you are setting the size, the hint must be set to None
@@ -286,9 +366,10 @@ class MyApp(MDApp):
     def build(self):
         
         screen = Builder.load_string(screen_helper)
-        self.icon = 'uc-logo.png'
-        self.title = "Scavenger Hunt"
+        self.icon = 'images/uc-logo.png'
+        self.title = "images/Scavenger Hunt"
         
         return screen
-
+    def callback(self):
+        self.im.source = 'images/Olin.png'
 MyApp().run()
